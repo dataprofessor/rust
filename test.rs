@@ -1,1 +1,3 @@
-println!("Hello world! Rust works!")
+fn main() {
+    println!("Hello World! Rust works!");
+}
