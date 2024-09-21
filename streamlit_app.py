@@ -1,5 +1,8 @@
 import streamlit as st
+import subprocess
 
-st.title('🎈 App Name')
+st.title('🦀 Rust in Streamlit')
 
-st.write('Hello world!')
+process1 = subprocess.Popen(["rustc", "test.rs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+result1 = process1.communicate()
+st.write(result1)
