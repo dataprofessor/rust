@@ -4,10 +4,13 @@ from code_editor import code_editor
 
 st.title('🦀 Rust in Streamlit')
 
-rust_code = """fn main() {
-    println!("Hello World! Rust works!");
-    }
-  """
+#rust_code = """fn main() {
+#    println!("Hello World! Rust works!");
+#}
+#"""
+
+with open('hello.rs') as rust_file:
+    rust_code = rust_file.read()
 
 response_dict = code_editor(rust_code, lang="rust")
 response_dict
