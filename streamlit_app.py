@@ -42,21 +42,16 @@ if 'rust_code' not in st.session_state:
     st.session_state.rust_code = initial_rust_code
 
 # Display code editor
-response_dict = code_editor(
-    st.session_state.rust_code,
-    lang="rust",
-    buttons=btn_settings
-)
+response_dict = code_editor(st.session_state.rust_code, lang="rust", buttons=btn_settings)
 
 # Check if the code has been updated
 if response_dict['text'] != st.session_state.rust_code:
     st.session_state.rust_code = response_dict['text']
-    result = compile_and_run_rust(st.session_state.rust_code)
-    st.session_state.result = result
+    st.experimental_rerun()
 
 # Display the current code
 st.code(st.session_state.rust_code)
 
-# Display the result
-if 'result' in st.session_state:
-    st.write(st.session_state.result)
+# Compile and run the code, and display the result
+result = compile_and_run_rust(st.session_state.rust_code)
+st.write(result)
