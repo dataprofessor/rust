@@ -10,8 +10,8 @@ rust_code = """
     }
   """
 
-response_dict = code_editor(rust_code)
-
+response_dict = code_editor(rust_code, lang="rust")
+response_dict
 
 process1 = subprocess.Popen(["rustc", "hello.rs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 process2 = subprocess.Popen(["./hello"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
