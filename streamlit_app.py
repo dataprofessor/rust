@@ -47,7 +47,7 @@ response_dict = code_editor(st.session_state.rust_code, lang="rust", buttons=btn
 # Check if the code has been updated
 if response_dict['text'] != st.session_state.rust_code:
     st.session_state.rust_code = response_dict['text']
-    st.experimental_rerun()
+    st.rerun()
 
 # Display the current code
 st.code(st.session_state.rust_code)
