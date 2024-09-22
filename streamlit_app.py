@@ -17,7 +17,7 @@ with open('btn_settings.json', 'r') as btn_file:
     btn_settings = json.load(btn_file)
 
 response_dict = code_editor(rust_code, lang="rust", buttons=btn_settings)
-response_dict['text']
+st.write(response_dict['text'])
 
 process1 = subprocess.Popen(["rustc", "hello.rs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 process2 = subprocess.Popen(["./hello"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
