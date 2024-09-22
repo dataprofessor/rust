@@ -3,44 +3,50 @@ import subprocess
 import json
 from code_editor import code_editor
 
-def compile_and_run_rust(code):
+def update_and_run_code():
+    # Write the updated code to file
     with open('code.rs', "w") as file:
-        file.write(code)
+        file.write(st.session_state.rust_code)
     
+    # Compile and run the Rust code
     process1 = subprocess.Popen(["rustc", "code.rs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    stdout1, stderr1 = process1.communicate()
+    process1.wait()  # Wait for compilation to finish
     
-    if process1.returncode != 0:
-        st.error(f"Compilation Error:\n{stderr1}")
-        return
-    
-    process2 = subprocess.Popen(["./code"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    stdout2, stderr2 = process2.communicate()
-    
-    if stderr2:
-        st.error(f"Runtime Error:\n{stderr2}")
+    if process1.returncode == 0:  # Check if compilation was successful
+        process2 = subprocess.Popen(["./code"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        result2 = process2.communicate()
+        st.session_state.output = result2[0]
     else:
-        st.success("Execution Result:")
-        st.code(stdout2)
-
-def on_code_change():
-    if st.session_state.code_editor:  # Check if code_editor is not empty
-        st.session_state.rust_code = st.session_state.code_editor['text']
-        compile_and_run_rust(st.session_state.rust_code)
+        st.session_state.output = "Compilation error: " + process1.communicate()[1]
 
 st.title('🦀 Rust in Streamlit')
 
+# Initialize session state
 if 'rust_code' not in st.session_state:
     with open('hello.rs') as rust_file:
         st.session_state.rust_code = rust_file.read()
 
+if 'output' not in st.session_state:
+    st.session_state.output = ""
+
+# Load button settings
 with open('btn_settings.json', 'r') as btn_file:
     btn_settings = json.load(btn_file)
 
-response_dict = code_editor(st.session_state.rust_code, lang="rust", buttons=btn_settings, key="code_editor", on_change=on_code_change)
+# Use the code editor
+response_dict = code_editor(st.session_state.rust_code, lang="rust", buttons=btn_settings)
 
-st.subheader("Rust Code:")
-st.code(st.session_state.rust_code, language="rust")
+# Update session state when code changes
+if response_dict['text'] != st.session_state.rust_code:
+    st.session_state.rust_code = response_dict['text']
+    st.rerun()  # Rerun the script to update the UI
 
-if response_dict and st.session_state.rust_code != response_dict['text']:
-    on_code_change()
+# Display the current code
+st.code(st.session_state.rust_code)
+
+# Button to update and run the code
+if st.button('Update and Run Code'):
+    update_and_run_code()
+
+# Display the output
+st.write(st.session_state.output)
