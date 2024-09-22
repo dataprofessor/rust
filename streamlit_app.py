@@ -3,6 +3,8 @@ import subprocess
 import json
 from code_editor import code_editor
 
+st.set_page_config(page_title="Rust in Streamlit", page_icon="🦀", layout="wide")
+
 def run_rust_code(code):
     with open('code.rs', "w") as file:
         file.write(code)
@@ -19,6 +21,7 @@ def code_changed():
         st.session_state.rust_output = run_rust_code(st.session_state.current_code)
         st.session_state.previous_code = st.session_state.current_code
 
+
 st.title('🦀 Rust in Streamlit')
 
 with open('hello.rs') as rust_file:
@@ -30,12 +33,15 @@ with open('btn_settings.json', 'r') as btn_file:
 if 'previous_code' not in st.session_state:
     st.session_state.previous_code = rust_code
 
-response_dict = code_editor(rust_code, lang="rust", buttons=btn_settings, key="code_editor")
 
-st.session_state.current_code = response_dict['text']
-code_changed()
+col = st.columns(2)
 
-st.code(st.session_state.current_code)
-
-if 'rust_output' in st.session_state:
-    st.write(st.session_state.rust_output)
+with col[0]:
+    response_dict = code_editor(rust_code, lang="rust", buttons=btn_settings, key="code_editor")
+    st.session_state.current_code = response_dict['text']
+    code_changed()
+    
+with col[1]:
+    st.code(st.session_state.current_code)
+    if 'rust_output' in st.session_state:
+        st.write(st.session_state.rust_output)
