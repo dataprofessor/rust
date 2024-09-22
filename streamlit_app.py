@@ -12,7 +12,24 @@ st.title('🦀 Rust in Streamlit')
 with open('hello.rs') as rust_file:
     rust_code = rust_file.read()
 
-response_dict = code_editor(rust_code, lang="rust")
+btn_settings_editor_btns = [{
+    "name": "copy",
+    "feather": "Copy",
+    "hasText": True,
+    "alwaysOn": True,
+    "commands": ["copyAll"],
+    "style": {"top": "0rem", "right": "0.4rem"}
+  },{
+    "name": "update",
+    "feather": "RefreshCw",
+    "primary": True,
+    "hasText": True,
+    "showWithIcon": True,
+    "commands": ["submit"],
+    "style": {"bottom": "0rem", "right": "0.4rem"}
+  }]
+
+response_dict = code_editor(rust_code, lang="rust", buttons=btn_settings_editor_btns)
 response_dict
 
 process1 = subprocess.Popen(["rustc", "hello.rs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
