@@ -37,12 +37,15 @@ if 'previous_code' not in st.session_state:
 col = st.columns(2)
 
 with col[0]:
-    st.subheader()
+    st.subheader('Code Input')
     response_dict = code_editor(rust_code, lang='rust', buttons=btn_settings, key='code_editor')
     st.session_state.current_code = response_dict['text']
     code_changed()
     
 with col[1]:
+    st.subheader('Code Content')
     st.code(st.session_state.current_code)
+    
+    st.subheader('Code Output')
     if 'rust_output' in st.session_state:
         st.write(st.session_state.rust_output)
