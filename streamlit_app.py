@@ -14,7 +14,7 @@ with open('hello.rs') as rust_file:
     rust_code = rust_file.read()
 
 with open('btn_settings.json') as btn_file:
-    btn_settings = json.load(btn_file)
+    btn_settings = btn_file.read()
 
 st.write(btn_settings)
 
