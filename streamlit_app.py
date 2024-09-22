@@ -16,7 +16,7 @@ response_dict = code_editor(rust_code, lang="rust", buttons=btn_settings)
 with open('rust_code.rs', "w") as file:
     file.write(response_dict['text'])
 
-process1 = subprocess.Popen(["rustc", "rust_code.rs.rs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+process1 = subprocess.Popen(["rustc", "rust_code.rs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 process2 = subprocess.Popen(["./rust_code"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 result2 = process2.communicate()
 st.write(result2[0])
