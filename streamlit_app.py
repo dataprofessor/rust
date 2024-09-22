@@ -4,8 +4,14 @@ from code_editor import code_editor
 
 st.title('🦀 Rust in Streamlit')
 
-response_dict = code_editor(your_code_string)
-response_dict
+rust_code = """
+    fn main() {
+    println!("Hello World! Rust works!");
+    }
+  """
+
+response_dict = code_editor(rust_code)
+
 
 process1 = subprocess.Popen(["rustc", "hello.rs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 process2 = subprocess.Popen(["./hello"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
