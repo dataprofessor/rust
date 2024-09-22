@@ -48,4 +48,4 @@ with col[1]:
     
     st.subheader('Code Output')
     if 'rust_output' in st.session_state:
-        st.write(st.session_state.rust_output)
+        st.code(st.session_state.rust_output)
