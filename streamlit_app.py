@@ -21,7 +21,8 @@ def code_changed():
 
 st.title('🦀 Rust in Streamlit')
 
-with open('hello.rs') as rust_file:
+#with open('hello.rs') as rust_file:
+with open('example.rs') as rust_file:
     rust_code = rust_file.read()
 
 with open('btn_settings.json', 'r') as btn_file:
