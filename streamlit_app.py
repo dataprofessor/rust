@@ -4,6 +4,10 @@ import json
 from code_editor import code_editor
 
 def compile_and_run_rust(code):
+    # Ensure there's a main function
+    if "fn main()" not in code:
+        code = "fn main() {\n    " + code.replace("\n", "\n    ") + "\n}"
+    
     # Write the code to a file
     with open('code.rs', "w") as file:
         file.write(code)
@@ -29,8 +33,9 @@ def update_code():
 
 # Initialize session state
 if 'editor_content' not in st.session_state:
-    with open('hello.rs') as rust_file:
-        st.session_state.editor_content = rust_file.read()
+    st.session_state.editor_content = """fn main() {
+    println!("Hello, world!");
+}"""
 
 if 'rust_output' not in st.session_state:
     st.session_state.rust_output = ""
