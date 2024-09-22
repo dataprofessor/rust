@@ -52,6 +52,6 @@ if response_dict['text'] != st.session_state.rust_code:
 # Display the current code
 st.code(st.session_state.rust_code)
 
-# Compile and run the code, and display the result
+# Compile and run the code
 result = compile_and_run_rust(st.session_state.rust_code)
 st.write(result)
