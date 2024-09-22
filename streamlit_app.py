@@ -3,16 +3,16 @@ import subprocess
 import json
 from code_editor import code_editor
 
-st.set_page_config(page_title="Rust in Streamlit", page_icon="🦀", layout="wide")
+st.set_page_config(page_title='Rust in Streamlit', page_icon='🦀', layout='wide')
 
 def run_rust_code(code):
-    with open('code.rs', "w") as file:
+    with open('code.rs', 'w') as file:
         file.write(code)
     
-    process1 = subprocess.Popen(["rustc", "code.rs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    process1 = subprocess.Popen(['rustc', 'code.rs'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     process1.wait()  # Wait for compilation to finish
     
-    process2 = subprocess.Popen(["./code"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    process2 = subprocess.Popen(['./code'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     result2 = process2.communicate()
     return result2[0]
 
@@ -37,6 +37,7 @@ if 'previous_code' not in st.session_state:
 col = st.columns(2)
 
 with col[0]:
+    st.subheader()
     response_dict = code_editor(rust_code, lang="rust", buttons=btn_settings, key="code_editor")
     st.session_state.current_code = response_dict['text']
     code_changed()
