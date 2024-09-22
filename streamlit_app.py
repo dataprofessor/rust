@@ -4,8 +4,7 @@ from code_editor import code_editor
 
 st.title('🦀 Rust in Streamlit')
 
-rust_code = """
-    fn main() {
+rust_code = """fn main() {
     println!("Hello World! Rust works!");
     }
   """
