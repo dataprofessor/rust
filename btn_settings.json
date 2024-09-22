@@ -1,16 +1,19 @@
-[{
+[
+  {
     "name": "copy",
     "feather": "Copy",
-    "hasText": True,
-    "alwaysOn": True,
+    "hasText": true,
+    "alwaysOn": true,
     "commands": ["copyAll"],
     "style": {"top": "0rem", "right": "0.4rem"}
-  },{
+  },
+  {
     "name": "update",
     "feather": "RefreshCw",
-    "primary": True,
-    "hasText": True,
-    "showWithIcon": True,
+    "primary": true,
+    "hasText": true,
+    "showWithIcon": true,
     "commands": ["submit"],
     "style": {"bottom": "0rem", "right": "0.4rem"}
-}]
+  }
+]
