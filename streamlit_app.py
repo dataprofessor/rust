@@ -44,7 +44,7 @@ with col[0]:
     
 with col[1]:
     st.subheader('Code Content')
-    st.code(st.session_state.current_code)
+    st.code(st.session_state.current_code, line_numbers=True)
     
     st.subheader('Code Output')
     if 'rust_output' in st.session_state:
