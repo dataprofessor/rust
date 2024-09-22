@@ -15,6 +15,7 @@ with open('hello.rs') as rust_file:
 with open('btn_settings') as btn_file:
     btn_settings = btn_file.read()
 
+st.write(btn_settings)
 
 response_dict = code_editor(rust_code, lang="rust", buttons=btn_settings)
 response_dict
