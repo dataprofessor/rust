@@ -1,6 +1,5 @@
 import streamlit as st
 import subprocess
-import json
 from code_editor import code_editor
 
 st.title('🦀 Rust in Streamlit')
@@ -13,7 +12,7 @@ st.title('🦀 Rust in Streamlit')
 with open('hello.rs') as rust_file:
     rust_code = rust_file.read()
 
-with open('btn_settings.json') as btn_file:
+with open('btn_settings') as btn_file:
     btn_settings = btn_file.read()
 
 st.write(btn_settings)
