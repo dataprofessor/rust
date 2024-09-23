@@ -35,7 +35,7 @@ with col[0]:
     }
 
     if code_dict[code_selection] == 'hello.rs':
-        st.write('''The typical rite of passage for learning any new language
+        st.markdown('''The typical rite of passage for learning any new language
             is to write out *Hello world* in that language. So here we go!
 
             **Overview**
