@@ -24,10 +24,10 @@ def code_changed():
 
 st.title('🦀 Rust in Streamlit')
 
-with open('hello.rs') as rust_file:
+with open('content/hello.rs') as rust_file:
     rust_code = rust_file.read()
 
-with open('btn_settings.json', 'r') as btn_file:
+with open('content/btn_settings.json', 'r') as btn_file:
     btn_settings = json.load(btn_file)
 
 if 'previous_code' not in st.session_state:
