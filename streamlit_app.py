@@ -38,7 +38,7 @@ with col[0]:
         st.markdown("""The typical rite of passage for learning any new language
             is to write out *Hello world* in that language. So here we go!
         """)
-        st.markdown("""**Overview**
+        st.markdown("""#### Overview
             1. First, we'll create a file called *hello.rs* containing code as displayed in the following code box.
             2. Secondly, we'll compile the file by running 
             ```
