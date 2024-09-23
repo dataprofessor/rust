@@ -24,15 +24,6 @@ def code_changed():
 
 st.title('🦀 Rust in Streamlit')
 
-#with open('content/btn_settings.json', 'r') as btn_file:
-#    btn_settings = json.load(btn_file)
-    
-#with open('content/hello.rs') as rust_file:
-#    rust_code = rust_file.read()
-    
-#if 'previous_code' not in st.session_state:
-#    st.session_state.previous_code = rust_code
-
 
 col = st.columns(2)
 
@@ -46,6 +37,14 @@ with col[0]:
     if code_dict[code_selection] == 'hello.rs':
         st.write('''The typical rite of passage for learning any new language
             is to write out *Hello world* in that language. So here we go!
+
+            **Overview**
+            1. First, we'll create a file called *hello.rs* containing code
+            as displayed in the following code box.
+            2. Secondly, we'll compile the file by running 
+            ```
+            rustc hello.rs
+            ```
         ''')
 
     
