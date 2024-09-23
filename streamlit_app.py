@@ -40,7 +40,7 @@ with col[0]:
         """)
         st.markdown("""**Overview**
         
-- First, we'll create a file called *hello.rs* containing code displayed in the following code box.
+- First, we'll create a file called *hello.rs* containing code displayed in the following code editor box.
 - Secondly, we'll compile the file by running `rustc hello.rs`
 - Thirdly, we'll run the compiled file using `./hello`
         """)
@@ -70,3 +70,6 @@ with col[1]:
         st.subheader('Code Output')
         if 'rust_output' in st.session_state:
             st.code(st.session_state.rust_output)
+
+    else:
+        st.warning('Press **update** in the left code editor box to compile/run the code.', icon="⚠️")
