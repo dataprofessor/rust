@@ -43,13 +43,14 @@ with col[0]:
         "Hello world!": "hello.rs",
     }
 
-    code_dict[code_selection]
+    
 
     
     with open('content/btn_settings.json', 'r') as btn_file:
         btn_settings = json.load(btn_file)
     
-    with open('content/hello.rs') as rust_file:
+    #with open('content/hello.rs') as rust_file:
+    with open(f'content/{code_dict[code_selection]}') as rust_file:
         rust_code = rust_file.read()
         
     if 'previous_code' not in st.session_state:
