@@ -24,14 +24,14 @@ def code_changed():
 
 st.title('🦀 Rust in Streamlit')
 
-with open('content/btn_settings.json', 'r') as btn_file:
-    btn_settings = json.load(btn_file)
+#with open('content/btn_settings.json', 'r') as btn_file:
+#    btn_settings = json.load(btn_file)
     
-with open('content/hello.rs') as rust_file:
-    rust_code = rust_file.read()
+#with open('content/hello.rs') as rust_file:
+#    rust_code = rust_file.read()
     
-if 'previous_code' not in st.session_state:
-    st.session_state.previous_code = rust_code
+#if 'previous_code' not in st.session_state:
+#    st.session_state.previous_code = rust_code
 
 
 col = st.columns(2)
@@ -45,6 +45,15 @@ with col[0]:
 
     code_dict[code_selection]
 
+    
+    with open('content/btn_settings.json', 'r') as btn_file:
+        btn_settings = json.load(btn_file)
+    
+    with open('content/hello.rs') as rust_file:
+        rust_code = rust_file.read()
+        
+    if 'previous_code' not in st.session_state:
+        st.session_state.previous_code = rust_code
     
     
     response_dict = code_editor(rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
