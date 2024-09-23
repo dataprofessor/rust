@@ -1,6 +1,6 @@
 [
   {
-    "name": "Copy",
+    "name": "copy",
     "feather": "Copy",
     "hasText": true,
     "alwaysOn": true,
@@ -8,7 +8,7 @@
     "style": {"top": "0rem", "right": "0.4rem"}
   },
   {
-    "name": "Update",
+    "name": "update",
     "feather": "RefreshCw",
     "primary": true,
     "hasText": true,
