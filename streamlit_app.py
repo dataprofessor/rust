@@ -32,6 +32,7 @@ with col[0]:
     code_selection = st.selectbox('Select an example', ('Hello world!'))
     code_dict = {
         "Hello world!": "hello.rs",
+        "Variable binding": "variable.rs",
     }
 
     if code_dict[code_selection] == 'hello.rs':
@@ -45,6 +46,9 @@ with col[0]:
 - Thirdly, we'll run the compiled file using `./hello`
         """)
 
+    if code_dict[code_selection] == 'variable.rs':
+        st.markdown("""Values can be assigned or bound to variables by using the `let` binding.
+        """)
     
     with open('content/btn_settings.json', 'r') as btn_file:
         btn_settings = json.load(btn_file)
