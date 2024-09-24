@@ -10,7 +10,7 @@ def run_rust_code(code):
         file.write(code)
     
     process1 = subprocess.Popen(['rustc', 'code.rs'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    process1.wait()  # Wait for compilation to finish
+    # process1.wait()  # Wait for compilation to finish
     
     process2 = subprocess.Popen(['./code'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     result2 = process2.communicate()
