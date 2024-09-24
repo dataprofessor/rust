@@ -64,9 +64,11 @@ with col[0]:
     response_dict = code_editor(rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
     st.session_state.current_code = response_dict['text']
 
+    code_changed()
+
     if st.session_state.current_code != '':
-        code_changed()
-    
+        st.warning('Click on the **update** button in the code editor box above.', icon='⚠️')
+        
 with col[1]:
     if st.session_state.current_code != '':
         st.subheader('Code Content')
