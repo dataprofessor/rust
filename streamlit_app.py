@@ -10,7 +10,7 @@ def run_rust_code(code):
         file.write(code)
     
     process1 = subprocess.Popen(['rustc', 'code.rs'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    # process1.wait()  # Wait for compilation to finish
+    process1.wait()  # Wait for compilation to finish
     
     process2 = subprocess.Popen(['./code'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     result2 = process2.communicate()
@@ -40,7 +40,7 @@ with col[0]:
         """)
         st.markdown("""**Overview**
         
-- First, we'll create a file called *hello.rs* containing code displayed in the following code editor box.
+- First, we'll create a file called *hello.rs* containing code displayed in the following code box.
 - Secondly, we'll compile the file by running `rustc hello.rs`
 - Thirdly, we'll run the compiled file using `./hello`
         """)
@@ -70,6 +70,3 @@ with col[1]:
         st.subheader('Code Output')
         if 'rust_output' in st.session_state:
             st.code(st.session_state.rust_output)
-
-    else:
-        st.warning('Press **update** in the left code editor box to compile/run the code.', icon="⚠️")
