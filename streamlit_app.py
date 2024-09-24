@@ -66,8 +66,8 @@ with col[0]:
 
     code_changed()
 
-    if st.session_state.current_code != '':
-        st.warning('Click on the **update** button in the code editor box above.', icon='⚠️')
+    #if st.session_state.current_code != '':
+        #st.warning('Click on the **update** button in the code editor box above.', icon='⚠️')
         
 with col[1]:
     if st.session_state.current_code != '':
