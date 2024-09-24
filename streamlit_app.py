@@ -71,4 +71,4 @@ with col[1]:
         if 'rust_output' in st.session_state:
             st.code(st.session_state.rust_output)
     else:
-        st.warning('Click on the **update** button in the code editor box shown on the left.', icon='⚠️')
+        st.warning('Click on the **update** button in the code editor box shown on the left to run the code.', icon='⚠️')
