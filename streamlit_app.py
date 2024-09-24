@@ -40,7 +40,7 @@ with col[0]:
         """)
         st.markdown("""**Overview**
         
-- First, we'll create a file called *hello.rs* containing code displayed in the following code box.
+- First, we'll create a file called *hello.rs*. The underlying code is displayed in the following code editor box. You'll see that we're using `println!()` to print the *Hello world!* text and this is defined inside the `main()` function.
 - Secondly, we'll compile the file by running `rustc hello.rs`
 - Thirdly, we'll run the compiled file using `./hello`
         """)
