@@ -8,7 +8,7 @@
     "style": {"top": "0rem", "right": "0.4rem"}
   },
   {
-    "name": "Update / Run",
+    "name": "Run",
     "feather": "RefreshCw",
     "primary": true,
     "hasText": true,
