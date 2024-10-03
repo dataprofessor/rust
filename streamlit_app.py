@@ -73,7 +73,7 @@ with col[0]:
 with col[1]:
     if st.button('Run Code'):
         st.code(response_dict['text'], line_numbers=True)
-        output = run_rust_code(rust_code)
+        output = run_rust_code(response_dict['text'])
         st.code(output, line_numbers=True)
     #if st.session_state.current_code != '':
         #st.subheader('Code Content')
