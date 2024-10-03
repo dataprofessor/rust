@@ -86,5 +86,5 @@ rust_code
 #st.session_state.previous_code
 
 st.code(rust_code, line_numbers=True)
-output = run_rust_code(response_dict['text'])
+output = run_rust_code(rust_code)
 st.code(output, line_numbers=True)
