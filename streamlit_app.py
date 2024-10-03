@@ -36,7 +36,7 @@ col = st.columns(2)
 
 with col[0]:
     st.subheader('Code Input')
-    code_selection = st.selectbox('Select an example', ('Hello world!', 'Variable binding'))
+    code_selection = st.selectbox('Select an example', ('Variable binding', 'Hello world!'))
     code_dict = {
         "Hello world!": "hello.rs",
         "Variable binding": "variable.rs",
