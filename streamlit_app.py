@@ -1,6 +1,5 @@
 import streamlit as st
 import subprocess
-import json
 from streamlit_ace import st_ace
 
 st.set_page_config(page_title='Rust in Streamlit', page_icon='🦀', layout='wide')
@@ -10,7 +9,7 @@ def run_rust_code(code):
         file.write(code)
     
     process1 = subprocess.Popen(['rustc', 'code.rs'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    process1.wait()  # Wait for compilation to finish
+    process1.wait()
     
     process2 = subprocess.Popen(['./code'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     result2 = process2.communicate()
