@@ -19,6 +19,10 @@ def run_rust_code(code):
 if 'rust_code' not in st.session_state:
     st.session_state.rust_code = ''
 
+if 'editor_code' not in st.session_state:
+    st.session_state.editor_code = ''
+
+
 #def code_changed():
     #if 'current_code' in st.session_state and st.session_state.current_code != st.session_state.previous_code:
         #st.session_state.rust_output = run_rust_code(st.session_state.current_code)
@@ -64,7 +68,7 @@ with col[0]:
         #st.session_state.previous_code = rust_code
     
     
-    response_dict = code_editor(st.session_state.rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
+    st.session_state.editor_code = code_editor(st.session_state.rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
     #st.session_state.current_code = response_dict['text']
 
     #code_changed()
@@ -75,8 +79,8 @@ with col[0]:
     
 with col[1]:
     if st.button('Run Code'):
-        st.code(response_dict['text'], line_numbers=True)
-        output = run_rust_code(response_dict['text'])
+        st.code(st.session_state.editor_code['text'], line_numbers=True)
+        output = run_rust_code(st.session_state.editor_code['text'])
         st.code(output, line_numbers=True)
     #if st.session_state.current_code != '':
         #st.subheader('Code Content')
