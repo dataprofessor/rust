@@ -86,7 +86,7 @@ with col[0]:
     
 with col[1]:
     if st.button('Run Code'):
-        st.code(st.session_state.editor_code['text'], line_numbers=True)
+        st.code(st.session_state.editor_code, line_numbers=True)
         output = run_rust_code(st.session_state.editor_code)
         st.code(output, line_numbers=True)
     #if st.session_state.current_code != '':
