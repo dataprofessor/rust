@@ -30,7 +30,7 @@ col = st.columns(2)
 
 with col[0]:
     st.subheader('Code Input')
-    code_selection = st.selectbox('Select an example', ('Variable binding', 'Hello world!'))
+    code_selection = st.selectbox('Select an example', ('Hello world!', 'Variable binding'))
     code_dict = {
         "Hello world!": "hello.rs",
         "Variable binding": "variable.rs",
@@ -43,10 +43,9 @@ with col[0]:
             is to write out *Hello world* in that language. So here we go!
         """)
         st.markdown("""**Overview**
-        
-- First, we'll create a file called *hello.rs*. The underlying code is displayed in the following code editor box. You'll see that we're using `println!()` to print the *Hello world!* text and this is defined inside the `main()` function.
-- Secondly, we'll compile the file by running `rustc hello.rs`
-- Thirdly, we'll run the compiled file using `./hello`
+            - First, we'll create a file called *hello.rs*. The underlying code is displayed in the following code editor box. You'll see that we're using `println!()` to print the *Hello world!* text and this is defined inside the `main()` function.
+            - Secondly, we'll compile the file by running `rustc hello.rs`
+            - Thirdly, we'll run the compiled file using `./hello`
         """)
 
         with open(f'content/{code_dict[code_selection]}') as rust_file:
