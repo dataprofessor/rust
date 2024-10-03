@@ -68,8 +68,13 @@ with col[0]:
 
     #if st.session_state.current_code != '':
         #st.warning('Click on the **update** button in the code editor box above.', icon='⚠️')
-        
-#with col[1]:
+
+    st.code(rust_code, line_numbers=True)
+    output = run_rust_code(rust_code)
+    
+with col[1]:
+    if output:
+        st.code(output, line_numbers=True)
     #if st.session_state.current_code != '':
         #st.subheader('Code Content')
         #st.code(rust_code, line_numbers=True)
@@ -85,6 +90,6 @@ rust_code
 #st.session_state.current_code
 #st.session_state.previous_code
 
-st.code(rust_code, line_numbers=True)
-output = run_rust_code(rust_code)
-st.code(output, line_numbers=True)
+#st.code(rust_code, line_numbers=True)
+#output = run_rust_code(rust_code)
+#st.code(output, line_numbers=True)
