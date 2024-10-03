@@ -58,7 +58,7 @@ with col[0]:
             st.session_state.rust_code = rust_file.read()
     
 
-    st.session_state.editor_code = st_ace(st.session_state.rust_code, language='rust')
+    st.session_state.editor_code = st_ace(st.session_state.rust_code, language='rust', max_lines=8)
 
     
 with col[1]:
