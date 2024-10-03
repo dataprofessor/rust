@@ -2,6 +2,7 @@ import streamlit as st
 import subprocess
 import json
 from code_editor import code_editor
+from streamlit_ace import st_ace
 
 st.set_page_config(page_title='Rust in Streamlit', page_icon='🦀', layout='wide')
 
@@ -73,8 +74,8 @@ with col[0]:
     #if 'previous_code' not in st.session_state:
         #st.session_state.previous_code = rust_code
     
-    
-    st.session_state.editor_code = code_editor(st.session_state.rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
+    st.session_state.editor_code = st_ace(st.session_state.rust_code)
+    # st.session_state.editor_code = code_editor(st.session_state.rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
     #st.session_state.current_code = response_dict['text']
 
     #code_changed()
