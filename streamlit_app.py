@@ -71,12 +71,10 @@ with col[0]:
     with placeholder:
         st.session_state.editor_code = st_ace(st.session_state.rust_code, language='rust', min_lines=8)
 
-    
-with col[1]:
     st.button('Run Code', on_click=generate_output)
     
+#with col[1]:
     #if st.button('Run Code'):
-        
         #st.subheader('Code Content')
         #st.code(st.session_state.editor_code, line_numbers=True)
 
