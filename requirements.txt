@@ -1,3 +1,2 @@
 streamlit
-streamlit_code_editor
 streamlit-ace
