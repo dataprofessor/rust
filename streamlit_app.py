@@ -16,6 +16,9 @@ def run_rust_code(code):
     result2 = process2.communicate()
     return result2[0]
 
+if 'rust_code' not in st.session_state:
+    st.session_state.rust_code = ''
+
 #def code_changed():
     #if 'current_code' in st.session_state and st.session_state.current_code != st.session_state.previous_code:
         #st.session_state.rust_output = run_rust_code(st.session_state.current_code)
@@ -55,7 +58,7 @@ with col[0]:
     
     #with open('content/hello.rs') as rust_file:
     with open(f'content/{code_dict[code_selection]}') as rust_file:
-        rust_code = rust_file.read()
+        st.session_state.rust_code = rust_file.read()
         
     #if 'previous_code' not in st.session_state:
         #st.session_state.previous_code = rust_code
@@ -86,7 +89,7 @@ with col[1]:
         #st.warning('Click on the **update** button in the code editor box shown on the left to run the code.', icon='⚠️')
 
 
-rust_code
+st.session_state.rust_code
 #st.session_state.current_code
 #st.session_state.previous_code
 
