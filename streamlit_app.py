@@ -44,7 +44,7 @@ with col[0]:
         "Variable binding": "variable.rs",
     }
 
-    st.write(f'Contents of {code_dict[code_selection]}:')
+    st.caption(f'Contents of {code_dict[code_selection]}:')
     placeholder = st.empty()
     
     if code_dict[code_selection] == 'hello.rs':
