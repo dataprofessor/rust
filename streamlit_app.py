@@ -69,11 +69,11 @@ with col[0]:
     #if st.session_state.current_code != '':
         #st.warning('Click on the **update** button in the code editor box above.', icon='⚠️')
 
-    st.code(rust_code, line_numbers=True)
-    output = run_rust_code(rust_code)
     
 with col[1]:
-    if output:
+    if st.button('Run Code'):
+        st.code(response_dict['text'], line_numbers=True)
+        output = run_rust_code(rust_code)
         st.code(output, line_numbers=True)
     #if st.session_state.current_code != '':
         #st.subheader('Code Content')
