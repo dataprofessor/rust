@@ -53,7 +53,8 @@ with col[0]:
 - Thirdly, we'll run the compiled file using `./hello`
         """)
 
-
+        with open(f'content/{code_dict[code_selection]}') as rust_file:
+            st.session_state.rust_code = rust_file.read()
 
     if code_dict[code_selection] == 'variable.rs':
         st.markdown("""Values can be assigned or bound to variables by using the `let` binding.
@@ -61,19 +62,19 @@ with col[0]:
 
         with open(f'content/{code_dict[code_selection]}') as rust_file:
             st.session_state.rust_code = rust_file.read()
-
+    
+    with open('content/btn_settings.json', 'r') as btn_file:
+        btn_settings = json.load(btn_file)
     
     #with open('content/hello.rs') as rust_file:
-    with open(f'content/{code_dict[code_selection]}') as rust_file:
-        st.session_state.rust_code = rust_file.read()
+    #with open(f'content/{code_dict[code_selection]}') as rust_file:
+        #st.session_state.rust_code = rust_file.read()
         
     #if 'previous_code' not in st.session_state:
         #st.session_state.previous_code = rust_code
     
-
-
-    if st.button('Edit code'):
-        st.session_state.editor_code = code_editor(st.session_state.rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
+    
+    st.session_state.editor_code = code_editor(st.session_state.rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
     #st.session_state.current_code = response_dict['text']
 
     #code_changed()
