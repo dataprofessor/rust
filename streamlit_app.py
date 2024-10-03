@@ -36,6 +36,8 @@ with col[0]:
         "Variable binding": "variable.rs",
     }
 
+    placeholder = st.empty()
+    
     if code_dict[code_selection] == 'hello.rs':
         st.markdown("""The typical rite of passage for learning any new language
             is to write out *Hello world* in that language. So here we go!
@@ -57,8 +59,8 @@ with col[0]:
         with open(f'content/{code_dict[code_selection]}') as rust_file:
             st.session_state.rust_code = rust_file.read()
     
-
-    st.session_state.editor_code = st_ace(st.session_state.rust_code, language='rust', min_lines=8)
+    with placeholder:
+        st.session_state.editor_code = st_ace(st.session_state.rust_code, language='rust', min_lines=8)
 
     
 with col[1]:
