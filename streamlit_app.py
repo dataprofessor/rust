@@ -70,8 +70,10 @@ with col[0]:
     #if 'previous_code' not in st.session_state:
         #st.session_state.previous_code = rust_code
     
-    
-    st.session_state.editor_code = code_editor('', lang='rust', height=12, buttons=btn_settings, key='code_editor')
+
+
+    if st.button('Edit code'):
+        st.session_state.editor_code = code_editor(st.session_state.rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
     #st.session_state.current_code = response_dict['text']
 
     #code_changed()
