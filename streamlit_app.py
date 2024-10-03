@@ -89,7 +89,7 @@ with col[1]:
         #st.warning('Click on the **update** button in the code editor box shown on the left to run the code.', icon='⚠️')
 
 
-st.session_state.rust_code
+st.code(st.session_state.rust_code)
 #st.session_state.current_code
 #st.session_state.previous_code
 
