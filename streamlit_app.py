@@ -16,12 +16,13 @@ def run_rust_code(code):
     return result2[0]
 
 def generate_output():
-    st.subheader('Code Content')
-    st.code(st.session_state.editor_code, line_numbers=True)
-
-    st.subheader('Code Output')
-    output = run_rust_code(st.session_state.editor_code)
-    st.code(output, line_numbers=True)
+    with col[1]:
+        st.subheader('Code Content')
+        st.code(st.session_state.editor_code, line_numbers=True)
+    
+        st.subheader('Code Output')
+        output = run_rust_code(st.session_state.editor_code)
+        st.code(output, line_numbers=True)
 
 if 'rust_code' not in st.session_state:
     st.session_state.rust_code = ''
