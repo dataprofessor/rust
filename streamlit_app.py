@@ -16,10 +16,10 @@ def run_rust_code(code):
     result2 = process2.communicate()
     return result2[0]
 
-def code_changed():
-    if 'current_code' in st.session_state and st.session_state.current_code != st.session_state.previous_code:
-        st.session_state.rust_output = run_rust_code(st.session_state.current_code)
-        st.session_state.previous_code = st.session_state.current_code
+#def code_changed():
+    #if 'current_code' in st.session_state and st.session_state.current_code != st.session_state.previous_code:
+        #st.session_state.rust_output = run_rust_code(st.session_state.current_code)
+        #st.session_state.previous_code = st.session_state.current_code
 
 
 st.title('🦀 Rust in Streamlit')
@@ -62,9 +62,9 @@ with col[0]:
     
     
     response_dict = code_editor(rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
-    st.session_state.current_code = response_dict['text']
+    #st.session_state.current_code = response_dict['text']
 
-    code_changed()
+    #code_changed()
 
     #if st.session_state.current_code != '':
         #st.warning('Click on the **update** button in the code editor box above.', icon='⚠️')
