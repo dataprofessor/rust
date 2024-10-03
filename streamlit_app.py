@@ -86,4 +86,5 @@ st.session_state.current_code
 st.session_state.previous_code
 
 st.code(rust_code, line_numbers=True)
-run_rust_code(st.session_state.current_code)
+output = run_rust_code(st.session_state.current_code)
+st.code(output, line_numbers=True)
