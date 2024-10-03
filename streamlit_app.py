@@ -64,7 +64,7 @@ with col[0]:
         #st.session_state.previous_code = rust_code
     
     
-    response_dict = code_editor(rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
+    response_dict = code_editor(st.session_state.rust_code, lang='rust', height=12, buttons=btn_settings, key='code_editor')
     #st.session_state.current_code = response_dict['text']
 
     #code_changed()
