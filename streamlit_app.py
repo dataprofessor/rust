@@ -48,15 +48,16 @@ with col[0]:
     placeholder = st.empty()
     
     if code_dict[code_selection] == 'hello.rs':
-        st.markdown("""The typical rite of passage for learning any new language
-            is to write out *Hello world* in that language. So here we go!
-        """)
-        st.markdown("""**Overview**
-        
-- First, we'll create a file called *hello.rs*. The underlying code is displayed in the following code editor box. You'll see that we're using `println!()` to print the *Hello world!* text and this is defined inside the `main()` function.
-- Secondly, we'll compile the file by running `rustc hello.rs`
-- Thirdly, we'll run the compiled file using `./hello`
-        """)
+        with st.expander('See explanation'):
+            st.markdown("""The typical rite of passage for learning any new language
+                is to write out *Hello world* in that language. So here we go!
+            """)
+            st.markdown("""**Overview**
+            
+    - First, we'll create a file called *hello.rs*. The underlying code is displayed in the following code editor box. You'll see that we're using `println!()` to print the *Hello world!* text and this is defined inside the `main()` function.
+    - Secondly, we'll compile the file by running `rustc hello.rs`
+    - Thirdly, we'll run the compiled file using `./hello`
+            """)
 
         #with open(f'content/{code_dict[code_selection]}') as rust_file:
             #st.session_state.rust_code = rust_file.read()
