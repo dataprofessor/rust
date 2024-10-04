@@ -50,7 +50,7 @@ with col[0]:
     if code_dict[code_selection] == 'hello.rs':
         with st.expander('See explanation'):
             st.markdown("""The typical rite of passage for learning any new language
-                is to write out *Hello world* in that language. So here we go!
+                is to write out *Hello world* in that language. So here we go!""")
             
             st.markdown("**Overview**")
             
