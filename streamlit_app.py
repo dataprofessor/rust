@@ -58,16 +58,18 @@ with col[0]:
 - Thirdly, we'll run the compiled file using `./hello`
         """)
 
-        with open(f'content/{code_dict[code_selection]}') as rust_file:
-            st.session_state.rust_code = rust_file.read()
+        #with open(f'content/{code_dict[code_selection]}') as rust_file:
+            #st.session_state.rust_code = rust_file.read()
 
     if code_dict[code_selection] == 'variable.rs':
         st.markdown("""Values can be assigned or bound to variables by using the `let` binding.
         """)
 
-        with open(f'content/{code_dict[code_selection]}') as rust_file:
+        #with open(f'content/{code_dict[code_selection]}') as rust_file:
+            #st.session_state.rust_code = rust_file.read()
+    with open(f'content/{code_dict[code_selection]}') as rust_file:
             st.session_state.rust_code = rust_file.read()
-    
+        
     with placeholder:
         st.session_state.editor_code = st_ace(st.session_state.rust_code, language='rust', min_lines=8)
 
