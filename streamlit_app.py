@@ -51,8 +51,8 @@ with col[0]:
         with st.expander('See explanation'):
             st.markdown("""The typical rite of passage for learning any new language
                 is to write out *Hello world* in that language. So here we go!
-            """)
-            st.markdown("""**Overview**
+            
+            **Overview**
             
     - First, we'll create a file called *hello.rs*. The underlying code is displayed in the following code editor box. You'll see that we're using `println!()` to print the *Hello world!* text and this is defined inside the `main()` function.
     - Secondly, we'll compile the file by running `rustc hello.rs`
